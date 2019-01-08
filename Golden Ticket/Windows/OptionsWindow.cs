@@ -120,5 +120,16 @@ namespace Golden_Ticket.Windows
             Settings.Default.CheckForUpdatesOnStart = AutoUpdateCheckBox.Checked; // Check for updates on application launch
             Settings.Default.Save();
         }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            Save();
+            DisableApply();
+        }
+
+        private void EnableApply() => btnApply.Enabled = true;
+        private void DisableApply() => btnApply.Enabled = false;
+
+        private void InputChanged(object sender, EventArgs e) => EnableApply();
     }
 }
